@@ -27,5 +27,21 @@ fn main() {
         total += rec_fuel(i32::from_str(&line).unwrap());
     }
 
-    print!("Hello {}", total);
+    print!("Hello {}\n", total);
+    functional_main();
+}
+
+fn functional_main() {
+    let filename = "day1/day1.txt";
+    // Open the file in read-only mode (ignoring errors).
+    let file = File::open(filename).unwrap();
+    let reader = BufReader::new(file);
+
+    print!("total={}\n", reader.lines().map(|l| {
+            fn r(x : i32) -> i32 {
+                let y = x / 3 - 2;
+                if y > 0 { y + r(y) } else { 0 }
+            };
+            r(i32::from_str(&l.unwrap()).unwrap())
+        }).sum::<i32>());
 }
