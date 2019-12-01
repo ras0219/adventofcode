@@ -1,15 +1,21 @@
 rule rustc
   command = rustc $in -o $out
 
+rule goc
+  command = sg docker "docker run --rm --mount type=bind,source=\"$$(pwd)\",target=/src golang:buster go build -o /src/$out /src/$in"
+  pool = console
+
 rule run
   command = $in
+  pool = console
 
-build out/day1: rustc day1/hello.rs
-build day1: run out/day1
+build out/day1_go: goc day1/hello.go
+build day1_go: run out/day1_go
 
-build .: phony all
-build .vscode: phony all
+build out/day1_rust: rustc day1/hello.rs
+build day1_rust: run out/day1_rust
 
+build day1: phony day1_rust day1_go
 build all: phony day1
 
 default all
