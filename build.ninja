@@ -1,0 +1,15 @@
+rule rustc
+  command = rustc $in -o $out
+
+rule run
+  command = $in
+
+build out/day1: rustc day1/hello.rs
+build day1: run out/day1
+
+build .: phony all
+build .vscode: phony all
+
+build all: phony day1
+
+default all
