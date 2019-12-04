@@ -15,7 +15,20 @@ build day1_go: run out/day1_go
 build out/day1_rust: rustc day1/hello.rs
 build day1_rust: run out/day1_rust
 
-build day1: phony day1_rust day1_go
-build all: phony day1
+build out/day2_go: goc day2/hello.go
+build day2_go: run out/day2_go
+
+build out/day2_rust: rustc day2/hello.rs
+build day2_rust: run out/day2_rust
+
+build out/day3_rust: rustc day3/hello.rs
+build day3_rust: run out/day3_rust
+
+build all: phony $
+out/day1_rust $
+out/day1_go $
+out/day2_rust $
+out/day2_go $
+out/day3_rust $
 
 default all
