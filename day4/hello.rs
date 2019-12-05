@@ -59,5 +59,5 @@ fn main() {
   }
   print!("valid={}\n", count);
   print!("valid2={}\n", count2);
-
 }
+// vim: set tabstop=2 shiftwidth=2 expandtab
