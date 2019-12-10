@@ -39,6 +39,9 @@ build day7_rust: run out/day7_rust
 build out/day8_rust: rustc day8/hello.rs
 build day8_rust: run out/day8_rust
 
+build out/day9_rust: rustc day9/hello.rs
+build day9_rust: run out/day9_rust
+
 build all: phony $
 out/day1_rust $
 out/day1_go $
@@ -50,5 +53,6 @@ out/day5_rust $
 out/day6_rust $
 out/day7_rust $
 out/day8_rust $
+out/day9_rust $
 
 default all
