@@ -57,6 +57,21 @@ build day13_rust: run out/day13_rust
 build out/day14_rust: rustc day14/hello.rs
 build day14_rust: run out/day14_rust
 
+build out/day15_rust: rustc day15/hello.rs
+build day15_rust: run out/day15_rust
+
+build out/day16_rust: rustc day16/hello.rs
+build day16_rust: run out/day16_rust
+
+build out/day17_rust: rustc day17/hello.rs
+build day17_rust: run out/day17_rust
+
+build out/day18_rust: rustc day18/hello.rs
+build day18_rust: run out/day18_rust
+
+build out/day19_rust: rustc day19/hello.rs
+build day19_rust: run out/day19_rust
+
 build all: phony $
 out/day1_rust $
 out/day1_go $
